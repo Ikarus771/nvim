@@ -187,6 +187,7 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-s>', ':wa<CR>', { desc = 'Save All' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -237,6 +238,8 @@ require('lazy').setup({
   require 'kickstart.plugins.satellite',
   require 'kickstart.plugins.lualine',
   require 'kickstart.plugins.neogit',
+  require 'kickstart.plugins.noice',
+  require 'kickstart.plugins.notify',
   -- {
   --   'wfxr/minimap.vim',
   --   build = 'cargo install --locked code-minimap',
@@ -331,6 +334,7 @@ require('lazy').setup({
       },
       formatters_by_ft = {
         lua = { 'stylua' },
+        java = { 'google-java-format' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

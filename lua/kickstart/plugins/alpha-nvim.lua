@@ -41,6 +41,7 @@ return {
         dashboard.button('e', '  > New file', ':ene <BAR> startinsert <CR>'),
         dashboard.button('f', '󰱼  > Find file', ':cd C:/Workspace | Telescope find_files<CR>'),
         dashboard.button('r', '  > Recent', ':Telescope oldfiles<CR>'),
+        dashboard.button('w', '  > Workspace', ':cd C:/Workspace | :Neotree reveal_force_cwd<CR>'),
         dashboard.button('s', '  > Settings', ':e $MYVIMRC | :Neotree reveal_force_cwd<CR>'),
         dashboard.button('q', '  > Quit NVIM', ':qa<CR>'),
       }
