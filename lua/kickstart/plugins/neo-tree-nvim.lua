@@ -29,11 +29,11 @@ return {
     },
     config = function()
       -- Keymaps
-      vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { desc = '[N]eotree [T]oggle' })
-      vim.keymap.set('n', '<leader>nt', ':Neotree toggle<CR>', { desc = '[N]eotree [T]oggle' })
-      vim.keymap.set('n', '<leader>nr', ':Neotree reveal_force_cwd<CR>', { desc = '[N]eotree [R]eveal' })
-      vim.keymap.set('n', '<leader>nw', ':Neotree reveal_force_cwd C:/Workspace<CR>', { desc = '[N]eotree [W]orkspace' })
-      vim.keymap.set('n', '<leader>nc', ':Neotree reveal_force_cwd C:/Users/Kamui/AppData/Local/nvim<CR>', { desc = '[N]eotree [C]onfig' })
+      vim.keymap.set('n', '<C-n>', ':Neotree toggle<CR>', { desc = '[N]eotree [T]oggle', silent = true })
+      vim.keymap.set('n', '<leader>nt', ':Neotree toggle<CR>', { desc = '[N]eotree [T]oggle', silent = true })
+      vim.keymap.set('n', '<leader>nr', ':Neotree reveal_force_cwd<CR>', { desc = '[N]eotree [R]eveal', silent = true })
+      vim.keymap.set('n', '<leader>nw', ':Neotree reveal_force_cwd C:/Workspace<CR>', { desc = '[N]eotree [W]orkspace', silent = true })
+      vim.keymap.set('n', '<leader>nc', ':Neotree reveal_force_cwd C:/Users/Kamui/AppData/Local/nvim<CR>', { desc = '[N]eotree [C]onfig', silent = true })
       -- If you want icons for diagnostic errors, you'll need to define them somewhere:
       vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
       vim.fn.sign_define('DiagnosticSignWarn', { text = ' ', texthl = 'DiagnosticSignWarn' })
