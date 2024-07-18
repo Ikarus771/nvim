@@ -1,3 +1,6 @@
+--
+-- Scrollbar on the right side
+--
 return {
   {
     'lewis6991/satellite.nvim',

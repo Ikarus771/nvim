@@ -6,6 +6,8 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'BurntSushi/ripgrep',
+      'rmagatti/session-lens',
+      -- 'nvim-telescope/telescope-project.nvim',
       { -- If encountering errors, see telescope-fzf-native README for install instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
@@ -47,6 +49,7 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
+
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
@@ -67,6 +70,8 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'ripgrep')
+      pcall(require('telescope').load_extension, 'session-lens')
+      -- pcall(require('telescope').load_extension, 'project')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -103,6 +108,10 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      vim.keymap.set('n', '<C-p>', ':SearchSession<CR>', { noremap = true, silent = true })
+
+      -- vim.api.nvim_set_keymap('n', '<C-p>', ":lua require'telescope'.extensions.project.project{}<CR>", { noremap = true, silent = true })
     end,
   },
 }
