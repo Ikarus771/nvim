@@ -242,6 +242,7 @@ require('lazy').setup({
   require 'kickstart.plugins.notify',
   require 'kickstart.plugins.auto-session',
   require 'kickstart.plugins.lazygit',
+  require 'kickstart.plugins.toggleterm',
   -- {
   --   'wfxr/minimap.vim',
   --   build = 'cargo install --locked code-minimap',
@@ -407,7 +408,8 @@ require('lazy').setup({
           -- Accept ([y]es) the completion.
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<CR>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -460,6 +462,8 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
   },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  { 'nyoom-engineering/oxocarbon.nvim', name = 'oxocarbon', priority = 1000 },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -510,7 +514,7 @@ require('lazy').setup({
 
       ---@diagnostic disable-next-line: missing-fields
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
+        ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'java', 'json' },
         -- Autoinstall languages that are not installed
         auto_install = true,
         highlight = { enable = true },

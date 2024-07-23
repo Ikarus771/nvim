@@ -53,15 +53,27 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          mappings = {
+            -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+            n = {
+              ['<c-d>'] = require('telescope.actions').delete_buffer,
+            }, -- n
+            i = {
+              ['<C-h>'] = 'which_key',
+              ['<c-d>'] = require('telescope.actions').delete_buffer,
+            }, -- i
+          },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
+          },
+        },
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
           },
         },
       }
@@ -109,7 +121,7 @@ return {
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
 
-      vim.keymap.set('n', '<C-p>', ':SearchSession<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<C-i>', ':SearchSession<CR>', { desc = 'Session-View', noremap = true, silent = true })
 
       -- vim.api.nvim_set_keymap('n', '<C-p>', ":lua require'telescope'.extensions.project.project{}<CR>", { noremap = true, silent = true })
     end,
