@@ -6,7 +6,6 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'BurntSushi/ripgrep',
-      'rmagatti/session-lens',
       -- 'nvim-telescope/telescope-project.nvim',
       { -- If encountering errors, see telescope-fzf-native README for install instructions
         'nvim-telescope/telescope-fzf-native.nvim',
@@ -82,7 +81,7 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'ripgrep')
-      pcall(require('telescope').load_extension, 'session-lens')
+      -- pcall(require('telescope').load_extension, 'session-lens')
       -- pcall(require('telescope').load_extension, 'project')
 
       -- See `:help telescope.builtin`
@@ -121,7 +120,8 @@ return {
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
 
-      vim.keymap.set('n', '<C-i>', ':SearchSession<CR>', { desc = 'Session-View', noremap = true, silent = true })
+      -- vim.keymap.set('n', '<C-i>', ':SearchSession<CR>', { desc = 'Session-View', noremap = true, silent = true })
+      -- vim.keymap.set('n', '<C-i>', ':Telescope session-lens<CR>', { desc = 'Session-View', noremap = true, silent = true })
 
       -- vim.api.nvim_set_keymap('n', '<C-p>', ":lua require'telescope'.extensions.project.project{}<CR>", { noremap = true, silent = true })
     end,

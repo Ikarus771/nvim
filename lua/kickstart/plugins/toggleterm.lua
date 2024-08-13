@@ -6,7 +6,7 @@ return {
     config = function()
       require('toggleterm').setup {
         -- size can be a number or function which is passed the current terminal
-        size = vim.o.columns * 0.3,
+        size = vim.o.columns * 0.5,
         start_in_insert = false,
       }
 

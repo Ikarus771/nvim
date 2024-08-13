@@ -3,10 +3,15 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
+      -- Makes inner Line Transparent
+      local auto_theme_custom = require 'lualine.themes.auto'
+      auto_theme_custom.normal.c.bg = 'none'
       require('lualine').setup {
         options = {
           icons_enabled = true,
-          theme = 'auto',
+          -- theme = require('filename').theme(),
+          -- theme = 'auto',
+          theme = auto_theme_custom,
           -- component_separators = { left = '|', right = '|' },
           -- component_separators = { left = '', right = '' },
           -- component_separators = { left = '\\', right = '/' },
@@ -33,7 +38,12 @@ return {
           lualine_c = { 'filename' },
           lualine_x = { 'encoding', 'fileformat', 'filetype' },
           lualine_y = { 'progress' },
-          lualine_z = { 'location' },
+          lualine_z = {
+            'location',
+            function()
+              return require('auto-session.lib').current_session_name(true)
+            end,
+          },
         },
         inactive_sections = {
           lualine_a = {},

@@ -233,6 +233,7 @@ require('lazy').setup({
       require('nvim-web-devicons').setup()
     end,
   },
+  require 'kickstart.plugins.auto-session',
   require 'kickstart.plugins.alpha-nvim',
   require 'kickstart.plugins.neo-tree-nvim',
   require 'kickstart.plugins.satellite',
@@ -240,9 +241,10 @@ require('lazy').setup({
   require 'kickstart.plugins.neogit',
   require 'kickstart.plugins.noice',
   require 'kickstart.plugins.notify',
-  require 'kickstart.plugins.auto-session',
   require 'kickstart.plugins.lazygit',
-  require 'kickstart.plugins.toggleterm',
+  require 'kickstart.plugins.hardtime',
+  require 'kickstart.plugins.actions-preview',
+  -- require 'kickstart.plugins.toggleterm',
   -- {
   --   'wfxr/minimap.vim',
   --   build = 'cargo install --locked code-minimap',
@@ -453,6 +455,13 @@ require('lazy').setup({
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
+      require('tokyonight').setup {
+        transparent = true,
+        styles = {
+          sidebars = 'transparent',
+          floats = 'transparent',
+        },
+      }
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
