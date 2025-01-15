@@ -165,6 +165,12 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- move in insertmode :)
+vim.keymap.set('i', '<C-h>', '<Left>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-k>', '<Up>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -242,9 +248,10 @@ require('lazy').setup({
   require 'kickstart.plugins.noice',
   require 'kickstart.plugins.notify',
   require 'kickstart.plugins.lazygit',
-  require 'kickstart.plugins.hardtime',
+  -- require 'kickstart.plugins.hardtime',
   require 'kickstart.plugins.actions-preview',
   -- require 'kickstart.plugins.toggleterm',
+  require 'kickstart.plugins.smear-cursor',
   -- {
   --   'wfxr/minimap.vim',
   --   build = 'cargo install --locked code-minimap',
@@ -430,12 +437,12 @@ require('lazy').setup({
             if luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump()
             end
-          end, { 'i', 's' }),
+          end, { 's' }),
           ['<C-h>'] = cmp.mapping(function()
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
             end
-          end, { 'i', 's' }),
+          end, { 's' }),
         },
         sources = {
           { name = 'nvim_lsp' },
@@ -469,6 +476,20 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like
       vim.cmd.hi 'Comment gui=none'
+    end,
+  },
+  {
+    'Mofiqul/vscode.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('vscode').setup {
+        transparent = true,
+        styles = {
+          sidebars = 'transparent',
+          floats = 'transparent',
+        },
+      }
     end,
   },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
