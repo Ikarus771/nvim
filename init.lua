@@ -171,6 +171,9 @@ vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-k>', '<Up>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true })
 
+vim.keymap.set('i', '<C-z>', '{}<Left>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-o>', '[]<Left>', { noremap = true, silent = true })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -252,6 +255,8 @@ require('lazy').setup({
   require 'kickstart.plugins.actions-preview',
   -- require 'kickstart.plugins.toggleterm',
   require 'kickstart.plugins.smear-cursor',
+  -- require 'kickstart.plugins.typr',
+  require 'kickstart.plugins.key-analyzer',
   -- {
   --   'wfxr/minimap.vim',
   --   build = 'cargo install --locked code-minimap',
