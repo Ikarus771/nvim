@@ -243,7 +243,7 @@ require('lazy').setup({
     end,
   },
   require 'kickstart.plugins.auto-session',
-  require 'kickstart.plugins.alpha-nvim',
+  -- require 'kickstart.plugins.alpha-nvim',
   require 'kickstart.plugins.neo-tree-nvim',
   require 'kickstart.plugins.satellite',
   require 'kickstart.plugins.lualine',
